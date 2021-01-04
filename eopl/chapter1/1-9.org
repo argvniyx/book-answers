@@ -1,0 +1,18 @@
+* Exercise 1.9
+
+Define =remove=, which is like =remove-first=, except that it removes /all/ occurrences of a
+given symbol from a list of symbols, not just the first.
+
+** COMMENT Answer
+=remove= would look something like this: (renamed to =my-remove= to avoid conflicts with
+Racket's existing =remove= function)
+
+#+BEGIN_SRC racket
+(define my-remove
+  (lambda (s los)
+    (if (null? los)
+        '()
+        (if (eqv? (car los) s)
+            (my-remove s (cdr los))
+            (cons (car los) (my-remove s (cdr los)))))))
+#+END_SRC

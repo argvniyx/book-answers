@@ -1,0 +1,27 @@
+* Exercise 1.13
+
+In our example, we began by eliminating the Kleene star in the grammar
+for =S-list=. Write =subst= following the original grammar by using
+=map=.
+
+** Answer
+ Recall the grammar:
+
+#+BEGIN_SRC
+S-list ::= ( {S-exp}* )
+S-exp  ::= Symbol | S-list
+#+END_SRC
+
+Then,
+
+#+BEGIN_SRC racket
+(define subst
+  (lambda (new old slist)
+    (map (lambda (sexp)
+         (if (symbol? sexp)
+             (if (eqv? sexp old) new sexp)
+             (subst new old sexp)))
+       slist)))
+#+END_SRC
+
+(Thank you, SICP)

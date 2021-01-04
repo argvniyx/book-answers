@@ -1,0 +1,11 @@
+* Exercise 1.11
+
+In the last line of =subst-in-s-exp=, the recursion is on =sexp= and
+not on a smaller substructure. Why is the recursion guaranteed to halt?
+
+** Answer
+This is because the recursion on a smaller substructure is handled
+by =subst=, which recurs on both the =car= and =cdr= or a given
+=s-list=. In a more general sense, the recursion is guaranteed to halt
+because both syntactic categories have productions that have
+terminals.

@@ -1,0 +1,32 @@
+* Exercise 1.15
+=(duple n x)= returns a list containing =n= copies of =x=
+
+** Answer
+#+BEGIN_SRC racket :exports both
+#lang racket
+;; duple: Int x Listof(SchemeVal) -> Listof(SchemeVal)
+;;
+;; usage:
+;; (duple n x) returns produces a list of x repeated n times
+(define duple
+  (lambda (n x)
+    (if (zero? n)
+        '()
+        (cons x (duple (- n 1) x)))))
+
+;; Tests
+;; TODO: create additional tests
+;; Things are wrapped in a list so that Org Babel can return all of the tests
+;; Similarly, the last test is wrapped in a list because (duple 0 '(blah)) returns the empty list
+;; which is ignored by Org Babel
+(list
+ (duple 2 3) ;; => (3 3)
+ (duple 4 '(ha ha)) ;; => ('(ha ha) '(ha ha) '(ha ha) '(ha ha))
+ (list (duple 0 '(blah))) ;; => ()
+)
+#+END_SRC
+
+#+RESULTS:
+| 3       |       3 |         |         |
+| (ha ha) | (ha ha) | (ha ha) | (ha ha) |
+| nil     |         |         |         |

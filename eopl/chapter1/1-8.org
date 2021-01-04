@@ -1,0 +1,26 @@
+* Exercise 1.8
+
+In the definition of =remove-first=, if the last line were replaced by =(remove-first s (cdr los))=,
+what function would the resulting procedure compute? Give the contract, including the usage statement,
+for the revised procedure.
+
+** Answer
+The revised procedure would look as follows:
+
+#+BEGIN_SRC racket
+;; remove-first:
+;; Sym x Lisof(Sym) -> Listof(Sym)
+;;
+;; usage:
+;; (remove-first s los) returns a list of all of the symbols in los, in the same order, that
+;; come after the first occurrence of s in los. In other words, it removes all the symbols in
+;; los up to and including the first occurrence of s.
+(define remove-first
+  (lambda (s los)
+    (if (null? los)
+        '()
+        (if (eqv? (car los) s)
+            (cdr los)
+            ;; BEFORE: (cons (car los) (remove-first s (cdr los)))
+            (remove-first s (cdr los))))))
+#+END_SRC

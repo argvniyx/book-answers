@@ -1,0 +1,6 @@
+* Exercise 1.10
+
+We typically use /or/ to mean /inclusive or/. What other meanings can /or/ have?
+
+** Answer
+"Exclusive Or", in which the result is true iff the arguments are /different/.

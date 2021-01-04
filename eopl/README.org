@@ -1,0 +1,5 @@
+* EOPL Answers
+
+Exercises from /Essentials of Programming Languages/ by Dan Friedman and Mitchell Wand.
+
+This is a work in progress.

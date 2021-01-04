@@ -1,0 +1,25 @@
+* Exercise 1.5
+Prove that if =e ∈ LcExp=, the there are the same number of left and right parenthesis
+in =e=
+
+** Answer
+Let us remember the =LcExp= grammar:
+#+BEGIN_SRC
+LcExp ::= Identifier
+        | (lambda (Identifier) LcExp)
+        | (LcExp LcExp)
+#+END_SRC
+
+Let the inductive hypothesis =IH(k)= be that any Lambda Expression made of =≤ k= subexpressions has
+balanced parens. We must prove that =IH(0)= hods and that, given that =IH(k)= holds, =IH(k + 1)= holds
+too.
+
+1. =IH(0)= holds because there are no parens, i.e., there are 0 left parens and 0 right parens. IH(1) also holds.
+   We would have an =Identifier=, which also has no parens.
+2. If an =LcExp= =e=, has =k + 1= subexpressions, then we have three posibilities:
+   1. =e= could be an =Identifier=, which is balanced as stated in point 1.
+   2. =e= could be =(lambda (Identifier) e1)=. Subexpression =e1= has less subexpressions than =e=, namely, it has
+      =≤ k= subexpressions and thus is covered by the inductive hypothesis. Provided that the =lambda= form is itself
+      balanced, as well as the =Identifier=, it stands to reason that =e= is balanced.
+   3. =e= could be =(e1 e2)=, and our reasoning would be the same: =e1= and =e2= are covered by the inductive hypothesis
+      and thus are said to be balanced, and they themselves are surrounded by balanced parens.

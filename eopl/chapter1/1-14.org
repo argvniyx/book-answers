@@ -1,0 +1,20 @@
+* Exercise 1.14
+
+Given the assumption =0 ≤ n < length(v)=, prove that
+=partial-vector-sum= is correct.
+
+** Answer
+We can prove it (as per the book's suggestion) via induction.
+
+Let the induction hypothesis =IH(k)= be that =partial-vector-sum k= is
+the sum of the =kth= first elements in the vector. We must prove that
+=IH(0)= holds and that, given that =IH(k)= holds, that =IH(k + 1)= holds
+too.
+
+=IH(0)= holds because =partial-vector-sum 0= yields =v(0)=, which is
+indeed the sum from the 0th element to the 0th element. =IH(k + 1)=
+holds because =IH(k + 1) = IH(k) + v(k + 1)= and =IH(k)= holds.
+
+In other words, =partial-vector-sum (k + 1)= is the sum from =0= to =k=
+plus =v(k + 1)=, which is equal to the sum from =0= to =k + 1=, which
+is what we wanted to prove.

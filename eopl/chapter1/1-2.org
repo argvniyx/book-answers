@@ -1,0 +1,31 @@
+* Exercise 1.2
+What sets are defined by the following pairs of rules? Explain why.
+
+** Exercise 1.2.1
+#+BEGIN_SRC
+                  (n, k) ∈ S
+----------    ------------------
+(0, 1) ∈ S    (n + 1, k + 7) ∈ S
+#+END_SRC
+
+The set described by the rules is the set ={ (n, 7n + 1) | n ∈ N }=. We know that the tuples contain natural
+numbers because =N= is closed under addition and multiplication. We know that the second element of the tuple is
+=7n + 1= because /(a)/ =k= is incremented by 7 (hence the coefficient) and /(b)/ =k = 1= in the axiom, hence the offset.
+
+** Exercise 1.2.2
+#+BEGIN_SRC
+                (n, k) ∈ S
+----------    ---------------
+(0, 1) ∈ S    (n + 1, 2k) ∈ S
+#+END_SRC
+
+The set described by the rules is the set ={ (n, 2^n) | n ∈ N }=. The reasoning is similar to *Exercise 1.2.1*
+
+** Exercise 1.2.3
+#+BEGIN_SRC
+                     (n, i, j) ∈ S
+-------------    ---------------------
+(0, 0, 1) ∈ S    (n + 1, j, i + j) ∈ S
+#+END_SRC
+
+The set described by the rules is the set ={ (n, Fib(n - 1), Fib(n)) | n ∈ N }=.

@@ -1,0 +1,29 @@
+* Exercise 1.7
+
+The error message from =nth-element= is uninformative. Rewrite =nth-element= so that it produces
+a more informative error message, such as =(a b c) does not have 8 elements=.
+
+** Answer
+#+BEGIN_SRC racket
+(require eopl)
+(define nth-element
+  (lambda (lst n)
+
+    ;; Helper function
+    (define iter
+      (lambda (lst n)
+        (if (zero? n)
+            (car lst)
+            (iter (cdr lst) (- n 1)))))
+
+    ;; Error reporting
+    ;; an additional test should be added to ensure n ∈ N (i.e. n ≥ 0)
+    (if (< n (length lst))
+        (iter lst n)
+        (report-list-too-short lst n))))
+
+(define report-list-too-short
+  (lambda (lst n)
+    (eopl:error 'nth-element
+                "The list ~s does not have ~s elements.~%" lst (+ n 1))))
+#+END_SRC

@@ -1,0 +1,20 @@
+* Exercise 1.6
+
+If we reversed the order of the tests in =nth-element=, what would go wrong?
+
+** Answer
+The resulting program would look as follows:
+
+#+BEGIN_SRC racket
+(define nth-element
+  (lambda (lst n)
+    (if (zero? n)
+        (car lst)
+        (if (null? lst)
+            (report-list-too-short n)
+            (nth-element (cdr lst) (- n 1))))))
+#+END_SRC
+
+The problem is that =lst= could be empty and thus the call to =car= would produce an error.
+This is a problem because said error would be more uninformative than that reported by
+=report-list-too-short=.

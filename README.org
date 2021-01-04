@@ -1,0 +1,7 @@
+* Book Exercises
+
+A list of book exercises solutions
+
+** Books
+- Essentials of Programming Languages (Friedmand, Wand)
+- Lisp in Small Pieces (Queinnec)
